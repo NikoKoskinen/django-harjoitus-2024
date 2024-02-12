@@ -12,6 +12,10 @@ class Kysymys(models.Model):
     def __str__(self):
         return self.teksti
 
+        def onko_julkaistu_lähiaikoina(self):
+            return self.julkaisupvm >= timezone.now() - datetime.timedelta(days=1)
+
+
 class Vaihtoehto(models.Model):
     kysymys = models.ForeignKey(Kysymys, on_delete=models.CASCADE)
     teksti = models.CharField(max_length=200)
