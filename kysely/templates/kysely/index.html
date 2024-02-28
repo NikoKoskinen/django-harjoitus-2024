@@ -1,9 +1,0 @@
-{% if kysymykset %}
-    <ul>
-    {% for kysym in kysymykset %}
-        <li><a href="{% url 'kysely:näytä' kysym.id %}">{{ kysym.teksti }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>Ei kyselyitä saatavilla.</p>
-{% endif %}
